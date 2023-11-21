@@ -1,0 +1,144 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { BsEye, BsPlusSquareFill, BsPencil, BsTrash } from "react-icons/bs";
+
+const API_URL = "https://jsonplaceholder.typicode.com/albums";
+
+const Home = () => {
+  const [albums, setAlbums] = useState([]);
+  const [newAlbumTitle, setNewAlbumTitle] = useState("");
+  const [showInput, setShowInput] = useState(false);
+  const [showAllAlbums, setShowAllAlbums] = useState(false);
+  const [selectedAlbumId, setSelectedAlbumId] = useState(null);
+  const [showAddAlbumModal, setShowAddAlbumModal] = useState(false);
+
+  useEffect(() => {
+    // Fetch albums from the API using Axios
+    axios
+      .get(API_URL)
+      .then((response) => setAlbums(response.data))
+      .catch((error) => console.error("Error fetching albums:", error));
+  }, []);
+
+  const handleAddAlbum = () => {
+    // Dummy POST request to add an album using Axios
+    axios
+      .post(API_URL, { title: newAlbumTitle })
+      .then((response) => setAlbums([...albums, response.data]))
+      .catch((error) => console.error("Error adding album:", error));
+
+    // Reset input and hide it after submitting
+    setNewAlbumTitle("");
+    setShowInput(false);
+    setShowAddAlbumModal(false);
+  };
+
+  const handleUpdateAlbum = (albumId) => {
+    // Dummy PUT request to update an album using Axios
+    axios
+      .put(`${API_URL}/${albumId}`, { title: "Updated Title" })
+      .then((response) => {
+        setAlbums(
+          albums.map((album) => (album.id === albumId ? response.data : album))
+        );
+        setSelectedAlbumId(null); // Close the update form
+      })
+      .catch((error) => console.error("Error updating album:", error));
+  };
+
+  const handleDeleteAlbum = (albumId) => {
+    // Dummy DELETE request to delete an album using Axios
+    axios
+      .delete(`${API_URL}/${albumId}`)
+      .then(() => setAlbums(albums.filter((album) => album.id !== albumId)))
+      .catch((error) => console.error("Error deleting album:", error));
+  };
+
+  return (
+    <div>
+      <h2>Albums</h2>
+      {showAllAlbums && (
+        <ul>
+          {albums.map((album) => (
+            <li key={album.id}>
+              <div>
+                <h3 onClick={() => setSelectedAlbumId(album.id)}>
+                  {album.title}
+                </h3>
+                {selectedAlbumId === album.id && (
+                  <div>
+                    <input
+                      type="text"
+                      value={album.title}
+                      onChange={(e) =>
+                        setAlbums(
+                          albums.map((a) =>
+                            a.id === album.id
+                              ? { ...a, title: e.target.value }
+                              : a
+                          )
+                        )
+                      }
+                    />
+                    <button onClick={() => handleUpdateAlbum(album.id)}>
+                      <BsPencil /> Update
+                    </button>
+                    <button onClick={() => handleDeleteAlbum(album.id)}>
+                      <BsTrash /> Delete
+                    </button>
+                  </div>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {showInput && (
+        <div>
+          <input
+            type="text"
+            value={newAlbumTitle}
+            onChange={(e) => setNewAlbumTitle(e.target.value)}
+          />
+          <button onClick={handleAddAlbum}>
+            <BsPlusSquareFill /> Add Album
+          </button>
+        </div>
+      )}
+
+      {!showInput && (
+        <>
+          <button onClick={() => setShowAllAlbums(!showAllAlbums)}>
+            {showAllAlbums ? <BsEye /> : <BsEye />}{" "}
+            {showAllAlbums ? "Hide Albums" : "Show Albums"}
+          </button>
+          <button onClick={() => setShowAddAlbumModal(true)}>
+            <BsPlusSquareFill /> Add Album
+          </button>
+        </>
+      )}
+
+      {showAddAlbumModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={() => setShowAddAlbumModal(false)}>
+              &times;
+            </span>
+            <h2>Add Album</h2>
+            <input
+              type="text"
+              value={newAlbumTitle}
+              onChange={(e) => setNewAlbumTitle(e.target.value)}
+            />
+            <button onClick={handleAddAlbum}>
+              <BsPlusSquareFill /> Add Album
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Home;
