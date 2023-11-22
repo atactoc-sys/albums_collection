@@ -17,7 +17,6 @@ const Home = () => {
   const [showAlbumsModal, setShowAlbumsModal] = useState(false);
 
   useEffect(() => {
-    // Fetch albums from the API using Axios
     axios
       .get(API_URL)
       .then((response) => setAlbums(response.data))
@@ -25,33 +24,29 @@ const Home = () => {
   }, []);
 
   const handleAddAlbum = () => {
-    // Dummy POST request to add an album using Axios
     axios
       .post(API_URL, { title: newAlbumTitle })
       .then((response) => setAlbums([...albums, response.data]))
       .catch((error) => console.error("Error adding album:", error));
 
-    // Reset input and hide it after submitting
     setNewAlbumTitle("");
     setShowInput(false);
     setShowAddAlbumModal(false);
   };
 
   const handleUpdateAlbum = (albumId) => {
-    // Dummy PUT request to update an album using Axios
     axios
       .put(`${API_URL}/${albumId}`, { title: "Updated Title" })
       .then((response) => {
         setAlbums(
           albums.map((album) => (album.id === albumId ? response.data : album))
         );
-        setSelectedAlbumId(null); // Close the update form
+        setSelectedAlbumId(null);
       })
       .catch((error) => console.error("Error updating album:", error));
   };
 
   const handleDeleteAlbum = (albumId) => {
-    // Dummy DELETE request to delete an album using Axios
     axios
       .delete(`${API_URL}/${albumId}`)
       .then(() => setAlbums(albums.filter((album) => album.id !== albumId)))
@@ -76,8 +71,6 @@ const Home = () => {
           </button>
         </div>
       </div>
-
-      {/* Modal for displaying the list of albums */}
       {showAlbumsModal && (
         <div className="listModal">
           <div className="modal-content">
@@ -96,7 +89,7 @@ const Home = () => {
                       <div className="liInnerdiv">
                         <input
                           type="text"
-                          value={album.title}
+                          placeholder="Add New Name"
                           onChange={(e) =>
                             setAlbums(
                               albums.map((a) =>
@@ -146,6 +139,7 @@ const Home = () => {
               <input
                 type="text"
                 value={newAlbumTitle}
+                placeholder="file Name"
                 onChange={(e) => setNewAlbumTitle(e.target.value)}
               />
               <button onClick={handleAddAlbum}>

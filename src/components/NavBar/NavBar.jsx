@@ -35,12 +35,10 @@ const NavBar = () => {
   }, [letters, intervalId]);
 
   useEffect(() => {
-    // Start the hacker effect when the component mounts
     startHackerEffect();
 
-    // Clean up interval on component unmount
     return () => clearInterval(intervalId);
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, []);
 
   return (
     <div className="navbar">

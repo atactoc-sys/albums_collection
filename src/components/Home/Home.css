@@ -1,201 +1,260 @@
 .home {
-    padding: 30px;
-    background-color: #ADEFD1FF;
+  padding: 30px;
+  background-color: #adefd1ff;
 }
-.mainMenu{
-    margin: 10px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-   justify-content: center;
-   align-items: center;
-    color: #00203FFF;
-    font-size: 40px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 1px;
+.mainMenu {
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #00203fff;
+  font-size: 40px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 1px;
 }
-.mainMenu>h4{
-    opacity: 1; 
-    animation: fadeIn 2s ease-in-out forwards;
+.mainMenu > h4 {
+  opacity: 1;
+  animation: fadeIn 2s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 .menuItem {
-    height: 100px auto;
-    width: 100%;
-    padding: 30px;
-    box-shadow: inset 6px -8px 20px 0px rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  height: 100px auto;
+  width: 100%;
+  padding: 30px;
+  box-shadow: inset 6px -8px 20px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.menuItem > button{
-    height: 150px;
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    box-shadow: -6px 8px 20px 0px rgba(0, 0, 0, 0.5);
-    background-color: #ADEFD1FF;
-    transition: transform 0.5s ease;
-    will-change: transform;
-        
+.menuItem > button {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: -6px 8px 20px 0px rgba(0, 0, 0, 0.5);
+  background-color: #adefd1ff;
+  transition: transform 0.5s ease;
+  will-change: transform;
 }
-.menuItem>button:hover {
-    transform: scale(1.1);
-    
+.menuItem > button:hover {
+  transform: scale(1.1);
 }
-.menuItem>button:active {
-    transform: scale(0.9);
-    
+.menuItem > button:active {
+  transform: scale(0.9);
 }
-.menuItem>button>svg {
-    font-size: 50px;
-    color: orange;
-    transition: transform 0.2s ease;
+.menuItem > button > svg {
+  font-size: 50px;
+  color: orange;
+  transition: transform 0.2s ease, color 0.3s ease;
 }
 
-.menuItem>button:active>svg {
-    transform: scale(1.3);
-    color: #ff2800;
+.menuItem > button:active > svg {
+  transform: scale(1.3);
+  color: #ff2800;
 }
 
 /* ----------------- */
 
-
-
 .listModal {
-    
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #adefd1ff;
+  animation: listModelAnimation 0.5s ease forwards;
+}
+@keyframes listModelAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-.modal-content{
+.modal-content {
+  background-color: #adefd1ff;
+  margin: 10px auto;
+  padding: 20px;
+  box-shadow: -6px 8px 20px 0px rgba(0, 0, 0, 0.5);
+}
+.modal-content > h4 {
+  margin-top: 10px;
+  color: #00203fff;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  letter-spacing: 2px;
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.close {
+  color: red;
+  float: right;
+  margin-right: 15px;
+  font-size: 48px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: tran;
+  transition: transform 0.3s ease;
+}
+.close:hover {
+  transform: scale(1.2);
+}
+.close:active {
+  transform: scale(0.9);
+}
 
-    background-color: #ED2B33FF;
-    margin: 10px auto;
-    padding: 20px;
-    border-radius: 80px 0 80px 80px;
-}
-.modal-content> h4{
-    color: white;
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-    letter-spacing: 2px;
-    margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
-.listModal .close {
-    color: red;
-    float: right;
-    margin-right: 15px;
-    font-size: 48px;
-    font-weight: bold;
-    cursor: pointer;
-}
 .listModal ul {
-    list-style: none;
-        padding: 0;
-        margin: 5px;
-        padding: 10px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-content: center;
-        justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 .listModal li {
-    margin: 5px;
-    padding: 5px;
-    background-color: #CE6981;
-    border-radius: 20px;
-box-shadow: 0px 7px 8px 0px rgba(0, 0, 0, 0.3);
-    height: fit-content;
-    width: auto;
-    font-size: 15px;
-    color: #FFFFF0;
+  margin: 5px;
+  padding: 5px;
+  background-color: #adefd1ff;
+  border-radius: 20px;
+  box-shadow: -10px 20px 10px 0px rgba(0, 0, 0, 0.5);
+  height: fit-content;
+  width: auto;
+  font-size: 15px;
+  color: #00203fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, margin-left 0.3s ease, margin-right 0.3s ease;
 }
+.listModal li:hover {
+  transform: scale(1.1);
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
 .liInnerdiv {
-    height: auto;
+  height: auto;
 }
-.liInnerdiv> input{
-    background-color: transparent;
-box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.5);
-margin-left: 5px;
-height: 15px;
-    
-    outline: none;
-        border: none;
-        color: #FFFFF0;
-    
+.liInnerdiv > input {
+  background-color: transparent;
+  box-shadow: -3px 4px 5px 0px rgba(0, 0, 0, 0.25);
+  margin-left: 5px;
+  height: 15px;
+  border-radius: 10%;
+  outline: none;
+  border: none;
+  color: #00203fff;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  transition: box-shadow 0.3s ease;
 }
-.liInnerdiv> button {
-    background-color: transparent;
-    cursor: pointer;
-        outline: none;
-        border: none;
-        font-size: 15px;
-        box-shadow: -6px 8px 20px 0px rgba(0, 0, 0, 0.5);
-        margin: 5px;
+.liInnerdiv > input:hover {
+  box-shadow: -6px 8px 10px 0px rgba(0, 0, 0, 0.35);
+}
 
-        
+.liInnerdiv > button {
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  border-radius: 100%;
+  box-shadow: -3px 4px 5px 0px rgba(0, 0, 0, 0.25);
+  margin: 5px;
+  transition: transform 0.3s ease;
 }
+.liInnerdiv > button:hover {
+  transform: scale(1.3);
+}
+.liInnerdiv > button:active {
+  transform: scale(0.8);
+}
+
+.liInnerdiv > button > svg {
+  color: orange;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.liInnerdiv > button:active > svg {
+  transform: scale(1.5);
+  color: black;
+}
+
 .addmodel {
-    margin: 10px;
-    padding: 20px;
-    display: flex;
-    
-        justify-content: center;
-        align-items: center;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
 }
-.addmodel> input {
+.addmodel > input {
+  background-color: transparent;
+  box-shadow: -10px 20px 10px 0px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+  height: 25px;
+  border-radius: 10%;
 
-    background-color: transparent;
-        box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.5);
-        margin-left: 5px;
-    
-        outline: none;
-        border: none;
-        height: 25px;
-        color: white;
-
+  outline: none;
+  border: none;
+  color: #00203fff;
+  transition: transform 0.3s ease;
 }
-.addmodel> button {
-    background-color: transparent;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        font-size: 25px;
-        box-shadow: -6px 8px 20px 0px rgba(0, 0, 0, 0.5);
-        margin: 5px;
+.addmodel > input:hover {
+  transform: scale(1.2);
+}
+.addmodel > button {
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 25px;
+  border-radius: 100%;
+  box-shadow: -10px 20px 10px 0px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+  transition: transform 0.3s ease;
 }
 
+.addmodel > button:hover {
+  transform: scale(1.2);
+}
 
+.addmodel > button:active {
+  transform: scale(0.9);
+}
 
-
-
+.addmodel > button > svg {
+  color: orange;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.addmodel > button > :active > svg {
+  transform: scale(1.5);
+  color: black;
+}
 
 .listModal .modal-content h3 {
-    cursor: pointer;
+  cursor: pointer;
 }
-
