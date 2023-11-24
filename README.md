@@ -12,19 +12,19 @@ The project serves as a platform for managing albums, providing functionalities 
 
 ## Features
 
-### View Albums
+1- View Albums
 
 Users can view a list of albums with their titles.
 
-### Add Album:
+2- Add Album:
 
 Users can add a new album by providing a title.
 
-### Update Album:
+3- Update Album:
 
 Users can update the title of an existing album.
 
-### Delete Album:
+4- Delete Album:
 
 Users can delete an album from the list.
 
