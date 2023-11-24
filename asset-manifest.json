@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/albums_collection/static/css/main.bf0156d6.css",
+    "main.js": "/albums_collection/static/js/main.5f8435b0.js",
+    "static/media/smlogo.png": "/albums_collection/static/media/smlogo.4c0fabfd997e37a349e9.png",
+    "index.html": "/albums_collection/index.html",
+    "main.bf0156d6.css.map": "/albums_collection/static/css/main.bf0156d6.css.map",
+    "main.5f8435b0.js.map": "/albums_collection/static/js/main.5f8435b0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bf0156d6.css",
+    "static/js/main.5f8435b0.js"
+  ]
+}
